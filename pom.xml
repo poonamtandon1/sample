@@ -35,9 +35,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
-	</build>
-	<plugin>
+			<plugin>
   <groupId>org.codehaus.mojo</groupId>
   <artifactId>cobertura-maven-plugin</artifactId>
   <version>2.6</version>
@@ -54,5 +52,8 @@
     </instrumentation>
   </configuration>
 </plugin>
+		</plugins>
+	</build>
+	
 
 </project>
