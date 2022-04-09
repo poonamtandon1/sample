@@ -1,4 +1,6 @@
 pipeline{
+ agent any
+ 
  stage("build & SonarQube analysis")
  {
     agent any
