@@ -1,3 +1,4 @@
+pipeline{
  stage("build & SonarQube analysis")
  {
     agent any
@@ -13,6 +14,7 @@
                }
             }
  }
+}
 
 
 
