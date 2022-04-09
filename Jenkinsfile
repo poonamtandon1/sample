@@ -1,9 +1,6 @@
 pipeline{
- agent any
  
- stage("build & SonarQube analysis")
- {
-    agent any
+ agent any
     stages {
              stage ('Compile Stage')
               {
@@ -16,7 +13,7 @@ pipeline{
                }
             }
  }
-}
+
 
 
 
