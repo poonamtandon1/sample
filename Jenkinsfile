@@ -1,4 +1,4 @@
-pipeline{
+  pipeline{
   agent {
            docker {
                image 'maven:3.8.1-adoptopenjdk-11'
@@ -13,10 +13,26 @@ pipeline{
                   }
         stage ('Build Stage'){
           steps{
-           sh  'mvn clean install'
-           }
+          script {
+          dockerImage = docker.build dockerimagename
+                 }
+               }
 
+    stage('Pushing Image') {
+      environment {
+               registryCredential = 'dockerhublogin'
+           }
+      steps{
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("latest")
+          }
+        }
       }
         }
-  }
+        }
    }
+
+
+
+
