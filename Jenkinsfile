@@ -22,6 +22,7 @@
         }
 
         stage('Build image') {
+        agent any
               steps{
                 script {
                   dockerImage = docker.build dockerimagename
