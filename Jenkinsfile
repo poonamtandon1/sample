@@ -3,7 +3,7 @@
       stages {
                stage ('Compile Stage'){
                    steps {
-                    withMaven(maven: 'M3') {
+                    withMaven() {
                          sh "mvn clean install "
                      }
                     }
