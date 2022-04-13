@@ -1,11 +1,13 @@
   pipeline{
+    tools {
+        maven 'apache-maven-3.0.1' 
+    }
      agent any
       stages {
                stage ('Compile Stage'){
                    steps {
-                    withMaven() {
-                         sh "mvn clean install "
-                     }
+                      sh "mvn clean install "
+                     
                     }
                }
       }
