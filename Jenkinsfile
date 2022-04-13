@@ -18,9 +18,7 @@
                }
         stage ('Build Docker Image') {
             script { 
-17
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-18
                 }
         }
       }
