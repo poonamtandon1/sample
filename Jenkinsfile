@@ -17,10 +17,10 @@
                      
                     }
                }
-        stage ('Build Docker Image') {
+        stage ('Build  Image') {
           steps { 
-            script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+            script {
+                  dockerImage = docker.build dockerimagename
                 }
           }
         }
