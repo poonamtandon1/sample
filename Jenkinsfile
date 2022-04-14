@@ -41,8 +41,8 @@
         stage('Deploying App to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "service.yml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "Deployment.yml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "Service.yml", kubeconfigId: "kubernetes")
         }
       }
     }
