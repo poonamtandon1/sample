@@ -4,6 +4,9 @@
       dockerImage = ""
     }
   agent any
+    tools {
+           maven 'maven-3.8.5'
+       }
       stages {
                stage ('Compile Stage'){
                   steps {
@@ -15,7 +18,6 @@
             sh 'mvn clean package'
           }
         }
-
         stage('Build image') {
               steps{
                 script {
@@ -23,5 +25,18 @@
                 }
               }
             }
+        
+        stage('Pushing Image') {
+      environment {
+               registryCredential = 'dockerhublogin'
+           }
+      steps{
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("latest")
+          }
+        }
+      }
         }
 }
+  }
