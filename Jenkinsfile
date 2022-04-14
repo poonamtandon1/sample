@@ -1,9 +1,8 @@
   pipeline{
   
-    environment { 
-        registry = "YourDockerhubAccount/YourRepository" 
-        registryCredential = 'dockerhub_id' 
-        dockerImage = '' 
+ environment {
+      dockerimagename = "poonamtandon1/testing"
+      dockerImage = ""
     }
     agent any
     
