@@ -16,8 +16,8 @@ spec:
         app: mavenapp
     spec:
       containers:
-        - name: SampleApp
+        - name: sample-app
           image: poonamtandon1/testing:latest
 
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
