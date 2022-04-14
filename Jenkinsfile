@@ -21,11 +21,12 @@
         stage('Build image') {
               steps{
                 script {
+                  mvn clean install
                   dockerImage = docker.build dockerimagename
                 }
               }
             }
-        
+
         stage('Pushing Image') {
       environment {
                registryCredential = 'dockerhublogin'
@@ -42,7 +43,7 @@
       steps {
         script {
           kubernetesDeploy(configs: "Deployment.yml", kubeconfigId: "kubernetes")
-          
+
         }
       }
     }
