@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maven-deployment
+  labels:
+    app: mavenapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mavenapp
+  template:
+    metadata:
+      labels:
+        app: mavenapp
+    spec:
+      containers:
+        - name: SampleApp
+          image: poonamtandon1/testing:latest
+
+          ports:
+            - containerPort: 3000
