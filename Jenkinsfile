@@ -21,7 +21,11 @@
           }
         }
         stage('Build image') {
-        when { anyOf { branch 'develop'; branch 'master' } }
+        when {
+            anyOf {
+                branch 'develop'; branch 'master'
+            }
+        }
               steps{
                 script {
                   dockerImage = docker.build dockerimagename
