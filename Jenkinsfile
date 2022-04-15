@@ -20,8 +20,8 @@
         }
         stage('Build image') {
               steps{
-                mvn clean install
                 script {
+                  mvn clean install
                   dockerImage = docker.build dockerimagename
                 }
               }
