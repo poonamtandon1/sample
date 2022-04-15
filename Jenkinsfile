@@ -10,7 +10,9 @@
       stages {
                stage ('Compile Stage'){
                   steps {
-                    sh 'mvn clean compile'
+                  withSonarQubeEnv('sonarqube') {
+                    sh 'mvn clean verify sonar:sonar'
+                  }
                   }
                   }
         stage ('Build Stage'){
