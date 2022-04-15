@@ -15,13 +15,12 @@
                   }
         stage ('Build Stage'){
           steps{
-            sh 'mvn clean package'
+            sh 'mvn clean install'
           }
         }
         stage('Build image') {
               steps{
                 script {
-                  mvn install
                   dockerImage = docker.build dockerimagename
                 }
               }
