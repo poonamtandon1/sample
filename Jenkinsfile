@@ -39,7 +39,11 @@
                registryCredential = 'dockerhublogin'
            }
       steps{
-       when { anyOf { branch 'develop'; branch 'master' } }
+       when {
+            anyOf {
+                branch 'develop'; branch 'master'
+            }
+      }
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
             dockerImage.push("latest")
@@ -48,7 +52,11 @@
       }
         }
         stage('Deploying App to Kubernetes') {
-         when { anyOf { branch 'develop'; branch 'master' } }
+         when {
+            anyOf {
+               branch 'develop'; branch 'master'
+            }
+         }
       steps {
         script {
           kubernetesDeploy(configs: "Deployment.yml", kubeconfigId: "kubernetes")
