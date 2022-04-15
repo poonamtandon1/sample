@@ -39,11 +39,6 @@
                registryCredential = 'dockerhublogin'
            }
       steps{
-       when {
-            anyOf {
-                branch 'develop'; branch 'master'
-            }
-      }
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
             dockerImage.push("latest")
